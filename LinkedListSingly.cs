@@ -437,5 +437,25 @@ namespace GA_LinkedListSingly_Ronda
             }
         } // ValidateRange
 
+        //// Sorts the list - example from GA assignment page
+        //public void SortList()
+        //{
+        //    Node current, index;
+        //    int temp;
+
+        //    for (current = Head; current != null; current = current.Next)
+        //    {
+        //        for (index = current.Next; index != null; index = index.Next)
+        //        {
+        //            if (current.Data > index.Data)
+        //            {
+        //                temp = current.Data;
+        //                current.Data = index.Data;
+        //                index.Data = temp;
+        //            }
+        //        }
+        //    }
+        //}
+
     } // class LinkedListSingly
 } // namespace
