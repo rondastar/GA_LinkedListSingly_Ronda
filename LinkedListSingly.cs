@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
@@ -144,10 +145,20 @@ namespace GA_LinkedListSingly_Ronda
         } // InsertAtIndex
 
         // Inserts an element at the beginning of the list
-        // ============================= COMPLETE THIS!!!!!=================
         internal void InsertAtFront(T value)
         {
+            // Create a node to keep track of the current node
+            LinkedListNode<T> current = _head;
 
+            // Create a new node with the input value
+            LinkedListNode<T> newNode = new LinkedListNode<T>(value);
+
+            newNode.Next = current;
+            _head = newNode;
+
+            // increment the count
+            Count++;
+            return;
         } // InsertAtFront
 
         // Inserts an element at the end of the list

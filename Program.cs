@@ -25,6 +25,9 @@ namespace GA_LinkedListSingly_Ronda
             singly.InsertAtIndex(1, 50);
             singly.InsertAtIndex(0, 33);
 
+            // Test InsertAtFront
+            singly.InsertAtFront(153);
+
             // Test Display
             singly.Display();
 
