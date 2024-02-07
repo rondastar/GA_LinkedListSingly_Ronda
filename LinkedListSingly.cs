@@ -162,10 +162,40 @@ namespace GA_LinkedListSingly_Ronda
         } // InsertAtFront
 
         // Inserts an element at the end of the list
-        // ============================= COMPLETE THIS!!!!!=================
         internal void InsertAtEnd(T value)
         {
+            // Create a node to keep track of the current node
+            LinkedListNode<T> current = _head;
 
+            // Create a new node with the input value
+            LinkedListNode<T> newNode = new LinkedListNode<T>(value);
+
+            // If there is no head, assign the new node to the head and return
+            if (current == null)
+            {
+                _head = newNode;
+
+                // increment the count
+                Count++;
+                return;
+            }
+
+            // Iterate through linked list 
+            while (current != null)
+            {
+                // At the last node, assign the new node to the current node's next reference and return
+                if (current.Next == null)
+                {
+                    current.Next = newNode;
+
+                    // increment the count
+                    Count++;
+                    return;
+                }
+
+                // iterate through the linked list
+                current = current.Next;
+            }
         } // InsertAtEnd
 
         // Removes an element at a specified index
