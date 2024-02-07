@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 //using static GA_LinkedListSingly_Ronda.LinkedListSingly<T>;
 
 namespace GA_LinkedListSingly_Ronda
@@ -46,6 +50,7 @@ namespace GA_LinkedListSingly_Ronda
             {
                 // Create a node to keep track of the current node
                 LinkedListNode<T> current = _head;
+
                 // Iterate through linked list until we are at the last link in the list
                 while(current.Next != null) 
                 {
@@ -87,13 +92,55 @@ namespace GA_LinkedListSingly_Ronda
         // ============================= COMPLETE THIS!!!!!=================
 
         // Inserts an element at a specified index
-        // ============================= COMPLETE THIS!!!!!=================
         internal void InsertAtIndex(int index, T value)
         {
-            //if (index < 0 || index >= count)
-            //{
-            //    throw new IndexOutOfRangeException();
-            //}
+            ValidateRange(index);
+
+            // Create a node to keep track of the current node
+            LinkedListNode<T> current = _head;
+
+            // Create a new node with the input value
+            LinkedListNode<T> newNode = new LinkedListNode<T>(value);
+
+            // Track the current index
+            int currentIndex = 0;
+
+            // Iterate through linked list 
+            while (current != null)
+            {
+                // If index is 0, assign the head to be the next node and the
+                // new node to be the head
+                if(currentIndex == 0 && index == 0)
+                {
+                    newNode.Next = current;
+                    _head = newNode;
+
+                    // increment the count
+                    Count++;
+                    return;
+                }
+
+                // At the node before the specified index,
+                // assign the  current node's next reference to the new node's Next reference.
+                // Assign the new node to the current node's next reference.
+                else if (currentIndex == index - 1)
+                {
+                    newNode.Next = current.Next;
+                    current.Next = newNode;
+
+                    // increment the count
+                    Count++;
+                    return;
+                }
+
+                // iterate through the linked list
+                current = current.Next;
+
+                // increment the currentIndex tracker
+                currentIndex++;
+            }
+
+
         } // InsertAtIndex
 
         // Inserts an element at the beginning of the list
@@ -140,16 +187,16 @@ namespace GA_LinkedListSingly_Ronda
 
 
         // ==== DELETE THIS IF NOT USED
-        // Check if the specified index is within the valid range (0 to count)
-        //internal static void ValidateRange(int index)
-        //{
-        //    // If the index is negative or the index is above our count 
-        //    // throw an exception
-        //    if (index < 0 || index >= count)
-        //    {
-        //        throw new IndexOutOfRangeException();
-        //    }
-        //}
+        //Check if the specified index is within the valid range(0 to count)
+        internal void ValidateRange(int index)
+        {
+            // If the index is negative or the index is above our count 
+            // throw an exception
+            if (index < 0 || index >= count)
+            {
+                throw new IndexOutOfRangeException();
+            }
+        }
 
     } // class LinkedListSingly
 } // namespace
