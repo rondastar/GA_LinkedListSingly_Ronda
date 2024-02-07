@@ -197,7 +197,6 @@ namespace GA_LinkedListSingly_Ronda
         } // InsertAtEnd
 
         // Removes an element at a specified index
-        // ============================= COMPLETE THIS!!!!!=================
         internal T RemoveAtIndex(int index)
         {
             ValidateRange(index);
@@ -205,7 +204,7 @@ namespace GA_LinkedListSingly_Ronda
             // Create a node to keep track of the current node
             LinkedListNode<T> current = _head;
 
-            // Create a temporary placeholder for the value at the removed node
+            // Temporary placeholder for the value at the removed node
             T temp;
 
             // Track the current index
@@ -227,15 +226,15 @@ namespace GA_LinkedListSingly_Ronda
                     return temp;
                 }
 
-                // At the node before the specified index,
-                // assign the  current node's next reference to the new node's Next reference.
-                // Assign the new node to the current node's next reference.
+                // At the node before the specified index, assign the data in the node at the index
+                // to temp. Then change the reference for the next node to the node after the next node.
+                // Return the value from the removed node
                 else if (currentIndex == index - 1)
                 {
                     temp = current.Next.Data;
                     current.Next = current.Next.Next;
 
-                    // increment the count
+                    // decrement the count
                     Count--;
 
                     // return the value of the removed node
@@ -254,28 +253,119 @@ namespace GA_LinkedListSingly_Ronda
         } // RemoveAtIndex
 
         // Removes an element at the beginning of the list
-        // ============================= COMPLETE THIS!!!!!=================
-        internal void RemoveAtFront()
+        internal T RemoveAtFront()
         {
+            if (_head == null)
+            {
+                Console.WriteLine("There are no nodes in the linked list.");
+                // return default if there is no node in head
+                return default(T);
+            }
 
-        } // RemoveAtFront
+            // Create a node to keep track of the current node
+            LinkedListNode<T> current = _head;
+
+            // Create a temporary placeholder for the value at the removed node
+            T temp;
+
+            // If the next node is not null, assign the head reference to it
+            if (current.Next != null)
+            {
+                temp = current.Data;
+                _head = current.Next;
+
+                // decrement the count
+                Count--;
+
+                // return the value of the removed node
+                return temp;
+            }
+            // If the next node is null, assign null to the head reference
+            //else if (current != null)
+            else if (current != null)
+            {
+                temp = current.Data;
+                _head = null;
+
+                // decrement the count
+                Count--;
+
+                // return the value of the removed node
+                return temp;
+            }
+
+            // return default if there is no node in head
+            return default(T);
+        }
 
         // Removes an element at the end of the list
-        // ============================= COMPLETE THIS!!!!!=================
-        internal void RemoveAtEnd()
+        internal T RemoveAtEnd()
         {
+            if (_head == null)
+            {
+                Console.WriteLine("There are no nodes in the linked list.");
+                // return default if there is no node in head
+                return default(T);
+            }
 
+            // Create a node to keep track of the current node
+            LinkedListNode<T> current = _head;
+
+            // Create a temporary placeholder for the value at the removed node
+            T temp;
+
+            // Iterate through linked list 
+            while (current != null)
+            {
+                // If there is only one node, store its value in temp and assign null to head.
+                if (Count == 1)
+                {
+                    temp = current.Data;
+                    _head = null;
+
+                    // decrement the count
+                    Count--;
+
+                    // return the value of the removed node
+                    return temp;
+                }
+                // At the second to last node, assign the data in the last node
+                // to temp. Then change the reference for the next node to null.
+                // Return the value from the removed node.
+                else if (current.Next.Next == null)
+                {
+                    temp = current.Next.Data;
+                    current.Next = null;
+
+                    // increment the count
+                    Count--;
+
+                    // return the value of the removed node
+                    return temp;
+                }
+
+                // iterate through the linked list
+                current = current.Next;
+            }
+
+            // If there are already no nodes in the list, display message
+            if (Count == 0)
+            {
+                Console.WriteLine("There are no nodes in the linked list.");
+            }
+
+            // If node is not properly removed, returns default
+            return default(T);
         } // RemoveAtEnd
 
         // Removes all elements from the linked list
         // ============================= COMPLETE THIS!!!!!=================
         internal void Clear()
         {
-
+            _head = null;
+            Count = 0;
         } // Clear
 
-
-        // ==== DELETE THIS IF NOT USED
         //Check if the specified index is within the valid range(0 to count)
         internal void ValidateRange(int index)
         {

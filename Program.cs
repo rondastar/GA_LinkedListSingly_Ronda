@@ -10,31 +10,61 @@ namespace GA_LinkedListSingly_Ronda
     {
         static void Main(string[] args)
         {
+            TestLinkedListSingly();
+        } // Main
+        public static void TestLinkedListSingly()
+        {
             // Test LinkedListSingly and its methods
             LinkedListSingly<int> singly = new LinkedListSingly<int>();
 
-            // Test InsertAtEnd
-            singly.InsertAtEnd(27);
+            //// Test InsertAtEnd
+            //singly.InsertAtEnd(27);
 
 
-            // Test Add
-            singly.Add(39);
-            singly.Add(2);
+            //// Test Add
+            //singly.Add(39);
+            //singly.Add(2);
+
+            //singly.Display();
+
+            //// Test Clear
+            //singly.Clear();
 
 
+            //// Test RemoveAtIndex
+            //singly.RemoveAtIndex(2);
 
-            // Remove at Index
-            singly.RemoveAtIndex(5);
+            ////Test RemoveAtFront
+            //singly.RemoveAtFront();
+            //singly.Display();
+            //singly.RemoveAtFront();
+            //singly.Display();
+            //singly.RemoveAtFront();
+            //singly.Display();
+            //singly.RemoveAtFront();
+            //singly.Display();
 
             //// Test AddAtIndex
-            //singly.InsertAtIndex(1, 50);
-            //singly.InsertAtIndex(0, 33);
+            //singly.InsertAtIndex(0, 50);
+            //singly.InsertAtIndex(1, 33);
 
             //// Test InsertAtFront
             //singly.InsertAtFront(153);
 
             //// Test InsertAtEnd
             //singly.InsertAtEnd(27);
+
+            ////Test RemoveAtEnd
+            //singly.RemoveAtEnd();
+            //singly.Display();
+
+            //singly.RemoveAtEnd();
+            //singly.Display();
+            //singly.RemoveAtEnd();
+            //singly.Display();
+
+            //singly.RemoveAtEnd();
+            //singly.Display();
 
             // Test Display
             singly.Display();
@@ -43,6 +73,7 @@ namespace GA_LinkedListSingly_Ronda
             Console.WriteLine(singly.Count);
 
 
-        }
-    }
-}
+        } // Test LinkedListSingly
+    
+    } // class
+} // namespace
