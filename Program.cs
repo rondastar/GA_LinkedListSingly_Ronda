@@ -42,20 +42,23 @@ namespace GA_LinkedListSingly_Ronda
             //singly.RemoveAtFront();
             //singly.Display();
 
-            // Test AddAtIndex
-            singly.InsertAtIndex(1, 50);
-            singly.InsertAtIndex(1, 33);
+            //// Test AddAtIndex
+            //singly.InsertAtIndex(1, 50);
+            //singly.InsertAtIndex(1, 33);
 
-            //// Test InsertAtFront
-            //singly.InsertAtFront(153);
+            ////// Test InsertAtFront
+            ////singly.InsertAtFront(153);
 
-            // Test InsertAtEnd
-            singly.InsertAtEnd(27);
+            //// Test InsertAtEnd
+            //singly.InsertAtEnd(27);
 
-            singly.Display();
+            //singly.Display();
 
-            // Test Remove
-            singly.Remove(27);
+            //// Test GetByIndex
+            //Console.WriteLine($"{singly.GetByIndex(3)}");
+
+            //// Test Remove
+            //singly.Remove(27);
 
             ////Test RemoveAtEnd
             //singly.RemoveAtEnd();

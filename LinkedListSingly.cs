@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static System.Formats.Asn1.AsnWriter;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 //using static GA_LinkedListSingly_Ronda.LinkedListSingly<T>;
@@ -67,7 +68,6 @@ namespace GA_LinkedListSingly_Ronda
         } // Add
 
         // Removes elements by their values
-        // ============================= COMPLETE THIS!!!!!=================
         internal void Remove(T value)
         {
             // Create a node to keep track of the current node
@@ -125,8 +125,33 @@ namespace GA_LinkedListSingly_Ronda
             Console.WriteLine(); // Moves to next line after displaying the items in list
         } // Display
 
-        // Implement an indexer override to access elements by index (see Core Methods)
-        // ============================= COMPLETE THIS!!!!!=================
+        // Indexer override to access elements by index (see Core Methods)
+        public T GetByIndex(int index)
+        {
+            ValidateRange(index);
+
+            // Create a node to keep track of the current node
+            LinkedListNode<T> current = _head;
+
+            // Track the current index
+            int currentIndex = 0;            
+
+            // Iterate through the list until the current index mathces the specified index
+            // and return the data from the specified index
+            while (current != null)
+            {
+                if (currentIndex == index)
+                {
+                    return current.Data;
+                }
+
+                currentIndex++;
+                current = current.Next;
+            }
+
+            // return default
+            return default(T);
+        }
 
         // Inserts an element at a specified index
         internal void InsertAtIndex(int index, T value)
