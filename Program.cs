@@ -17,15 +17,13 @@ namespace GA_LinkedListSingly_Ronda
             // Test LinkedListSingly and its methods
             LinkedListSingly<int> singly = new LinkedListSingly<int>();
 
-            //// Test InsertAtEnd
-            //singly.InsertAtEnd(27);
+            // Test InsertAtEnd
+            singly.InsertAtEnd(27);
 
 
-            //// Test Add
-            //singly.Add(39);
-            //singly.Add(2);
-
-            //singly.Display();
+            // Test Add
+            singly.Add(39);
+            singly.Add(2);
 
             //// Test Clear
             //singly.Clear();
@@ -44,15 +42,20 @@ namespace GA_LinkedListSingly_Ronda
             //singly.RemoveAtFront();
             //singly.Display();
 
-            //// Test AddAtIndex
-            //singly.InsertAtIndex(0, 50);
-            //singly.InsertAtIndex(1, 33);
+            // Test AddAtIndex
+            singly.InsertAtIndex(1, 50);
+            singly.InsertAtIndex(1, 33);
 
             //// Test InsertAtFront
             //singly.InsertAtFront(153);
 
-            //// Test InsertAtEnd
-            //singly.InsertAtEnd(27);
+            // Test InsertAtEnd
+            singly.InsertAtEnd(27);
+
+            singly.Display();
+
+            // Test Remove
+            singly.Remove(27);
 
             ////Test RemoveAtEnd
             //singly.RemoveAtEnd();

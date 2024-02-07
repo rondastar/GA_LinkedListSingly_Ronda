@@ -70,7 +70,43 @@ namespace GA_LinkedListSingly_Ronda
         // ============================= COMPLETE THIS!!!!!=================
         internal void Remove(T value)
         {
+            // Create a node to keep track of the current node
+            LinkedListNode<T> current = _head;
 
+            // If there is only one node in the list and its Data is the value, change the 
+            // head to null, decrement the count, and return
+            if (Count == 1 && Comparer<T>.Default.Compare(current.Data, value) == 0)
+            {
+                _head = null;
+
+                // Decrement count
+                Count--;
+                return;
+            }
+
+            while (current!= null)
+            {
+                // If the Data in the head node is the value to be removed, assign the next node to head
+                if(current == _head && Comparer<T>.Default.Compare(current.Data, value) == 0)
+                {
+                    _head = current.Next;
+                    // decrement the count
+                    Count--;
+                }
+                // If the data in the next node is the value to be removed, assign the node after the next node
+                // to be the next node
+                else if(Comparer<T>.Default.Compare(current.Next.Data, value) == 0)
+                {
+                    current.Next = current.Next.Next;
+
+                    // decrement the count
+                    Count--;
+                }
+
+                // iterate through the list
+                current = current.Next;
+            }
+     
         } // Remove
 
         // Displays all elements in the linked list
@@ -296,7 +332,7 @@ namespace GA_LinkedListSingly_Ronda
 
             // return default if there is no node in head
             return default(T);
-        }
+        } // RemoveAtFront
 
         // Removes an element at the end of the list
         internal T RemoveAtEnd()
@@ -359,7 +395,6 @@ namespace GA_LinkedListSingly_Ronda
         } // RemoveAtEnd
 
         // Removes all elements from the linked list
-        // ============================= COMPLETE THIS!!!!!=================
         internal void Clear()
         {
             _head = null;
@@ -375,7 +410,7 @@ namespace GA_LinkedListSingly_Ronda
             {
                 throw new IndexOutOfRangeException();
             }
-        }
+        } // ValidateRange
 
     } // class LinkedListSingly
 } // namespace
