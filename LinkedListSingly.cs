@@ -140,8 +140,6 @@ namespace GA_LinkedListSingly_Ronda
                 // increment the currentIndex tracker
                 currentIndex++;
             }
-
-
         } // InsertAtIndex
 
         // Inserts an element at the beginning of the list
@@ -200,9 +198,59 @@ namespace GA_LinkedListSingly_Ronda
 
         // Removes an element at a specified index
         // ============================= COMPLETE THIS!!!!!=================
-        internal void RemoveAtIndex(int index)
+        internal T RemoveAtIndex(int index)
         {
+            ValidateRange(index);
 
+            // Create a node to keep track of the current node
+            LinkedListNode<T> current = _head;
+
+            // Create a temporary placeholder for the value at the removed node
+            T temp;
+
+            // Track the current index
+            int currentIndex = 0;
+
+            // Iterate through linked list 
+            while (current != null)
+            {
+                // If index is 0, assign the next node to be the head
+                if (currentIndex == 0 && index == 0)
+                {
+                    temp = current.Data;
+                    _head = current.Next;
+
+                    // decrement the count
+                    Count--;
+
+                    // return the value of the removed node
+                    return temp;
+                }
+
+                // At the node before the specified index,
+                // assign the  current node's next reference to the new node's Next reference.
+                // Assign the new node to the current node's next reference.
+                else if (currentIndex == index - 1)
+                {
+                    temp = current.Next.Data;
+                    current.Next = current.Next.Next;
+
+                    // increment the count
+                    Count--;
+
+                    // return the value of the removed node
+                    return temp;
+                }
+
+                // iterate through the linked list
+                current = current.Next;
+
+                // increment the currentIndex tracker
+                currentIndex++;                
+            }
+
+            // If index is not properly removed, returns default
+            return default(T);
         } // RemoveAtIndex
 
         // Removes an element at the beginning of the list
