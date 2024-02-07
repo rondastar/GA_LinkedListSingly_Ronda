@@ -67,6 +67,7 @@ namespace GA_LinkedListSingly_Ronda
             count++;
         } // Add
 
+        // ================== This Remove works with numerical values =================
         // Removes elements by their values
         internal void Remove(T value)
         {
@@ -84,10 +85,10 @@ namespace GA_LinkedListSingly_Ronda
                 return;
             }
 
-            while (current!= null)
+            while (current != null)
             {
                 // If the Data in the head node is the value to be removed, assign the next node to head
-                if(current == _head && Comparer<T>.Default.Compare(current.Data, value) == 0)
+                if (current == _head && Comparer<T>.Default.Compare(current.Data, value) == 0)
                 {
                     _head = current.Next;
                     // decrement the count
@@ -95,7 +96,7 @@ namespace GA_LinkedListSingly_Ronda
                 }
                 // If the data in the next node is the value to be removed, assign the node after the next node
                 // to be the next node
-                else if(Comparer<T>.Default.Compare(current.Next.Data, value) == 0)
+                else if (Comparer<T>.Default.Compare(current.Next.Data, value) == 0)
                 {
                     current.Next = current.Next.Next;
 
@@ -106,8 +107,51 @@ namespace GA_LinkedListSingly_Ronda
                 // iterate through the list
                 current = current.Next;
             }
-     
         } // Remove
+
+
+        // ================== This Remove works with non-numerical values==============
+        //// Removes elements by their values
+        //internal void Remove(T value)
+        //{
+        //    // Create a node to keep track of the current node
+        //    LinkedListNode<T> current = _head;
+
+        //    // If there is only one node in the list and its Data is the value, change the 
+        //    // head to null, decrement the count, and return
+        //    if (Count == 1 && Comparer<T>.Equals(current.Data, value))
+        //    {
+        //        _head = null;
+
+        //        // Decrement count
+        //        Count--;
+        //        return;
+        //    }
+
+        //    while (current!= null)
+        //    {
+        //        // If the Data in the head node is the value to be removed, assign the next node to head
+        //        if(current == _head && Comparer<T>.Equals(current.Data, value))
+        //        {
+        //            _head = current.Next;
+        //            // decrement the count
+        //            Count--;
+        //        }
+        //        // If the data in the next node is the value to be removed, assign the node after the next node
+        //        // to be the next node
+        //        else if(Comparer<T>.Equals(current.Data, value))
+        //        {
+        //            current.Next = current.Next.Next;
+
+        //            // decrement the count
+        //            Count--;
+        //        }
+
+        //        // iterate through the list
+        //        current = current.Next;
+        //    }
+
+        //} // Remove
 
         // Displays all elements in the linked list
         internal void Display()
